@@ -1,13 +1,46 @@
 @import "tailwindcss";
 
 :root {
+  /* Base Colors */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* === TSE Brand Colors === */
+  --tse-yellow: #f2e92c; /* Title Yellow (fixed invalid hex: #F2N92C → #F2E92C) */
+  --tse-red: #89181a;    /* Logo Main Color */
+  --tse-brown: #341515;  /* Highlighting */
+
+  /* === TSA Brand Colors === */
+  --tsa-yellow: #f3b92c; /* Logo and Titles */
+  --tsa-blue: #2b3174;   /* Logo Main Color */
+  --tsa-darkblue: #1c1c4c; /* Highlighting */
+
+  /* === TSX Brand Colors === */
+  --tsx-brown: #3f2333;  /* Titles and Shadows */
+  --tsx-pink: #c86d9f;   /* Logo Main Color */
+  --tsx-white: #ffffff;  /* Highlighting */
 }
 
+/* Tailwind Theme Integration */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* TSE Theme */
+  --color-tse-yellow: var(--tse-yellow);
+  --color-tse-red: var(--tse-red);
+  --color-tse-brown: var(--tse-brown);
+
+  /* TSA Theme */
+  --color-tsa-yellow: var(--tsa-yellow);
+  --color-tsa-blue: var(--tsa-blue);
+  --color-tsa-darkblue: var(--tsa-darkblue);
+
+  /* TSX Theme */
+  --color-tsx-brown: var(--tsx-brown);
+  --color-tsx-pink: var(--tsx-pink);
+  --color-tsx-white: var(--tsx-white);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
