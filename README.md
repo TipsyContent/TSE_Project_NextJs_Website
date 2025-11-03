@@ -1,21 +1,24 @@
 # TSE_Project_NextJs_Website
 
-For at køre serveren med nodemon første gang:
+# For at køre serveren med nodemon første gang:
+
 CMD COMMANDS:
 
 - cd tse-gang-nextjs-project
 - npm install
 - npm build
 - cmd c
-- # nodemon
+- nodemon
   Serveren køre
 
-Fremover brug
+# Fremover brug
+
 CMD COMMANDS:
 
 - cd tse-gang-nextjs-project
-- # nodemon
+- nodemon
   Serveren køre
 
-For at lukke nodemon server
+# For at lukke nodemon server
+
 cmd c i terminal
