@@ -6,7 +6,7 @@ CMD COMMANDS:
 
 - cd tse-gang-nextjs-project
 - npm install
-- npm build
+- npm run build
 - cmd c
 - nodemon
   Serveren køre
