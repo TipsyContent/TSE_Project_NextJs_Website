@@ -29,7 +29,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <div className="grid justify-center w-full">
+          <main className="grid justify-center w-[1200px]">{children}</main>
+        </div>
       </body>
     </html>
   );
