@@ -1,38 +1,51 @@
+'use client'
+
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 type NavItem = {
   href: string;
   label: string;
 };
 
-// Main links we want ready in the top bar.
 const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About TSE" },
-  { href: "/contact", label: "Contact" },
-  { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About TSE" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 const Navbar = () => (
-  <nav
-    className="bg-tse-red px-6 py-3 shadow-md"
-    aria-label="Primary navigation"
-  >
-    {/* Keep the links centered and evenly spaced across breakpoints. */}
-    <ul className="flex flex-wrap items-center justify-center gap-6 m-0 list-none p-0">
-      {NAV_ITEMS.map((item) => (
-        <li key={item.href}>
-          <Link
-            href={item.href}
-            className="inline-block font-semibold text-white tracking-wide transition duration-200 hover:-translate-y-0.5 hover:text-tse-yellow focus-visible:-translate-y-0.5 focus-visible:text-tse-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tse-yellow"
-          >
-            {item.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </nav>
+  <header className="bg-tse-red shadow-md" aria-label="Primary navigation">
+    <div className="mx-auto flex max-w-5xl justify-center px-6 py-3">
+      <NavigationMenu className="bg-transparent">
+        <NavigationMenuList className="flex-wrap gap-3">
+          {NAV_ITEMS.map((item) => (
+            <NavigationMenuItem key={item.href}>
+              <Link href={item.href} legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent px-3 font-semibold text-white hover:bg-transparent hover:text-tse-yellow focus:bg-transparent focus:text-tse-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tse-yellow"
+                  )}
+                >
+                  {item.label}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
+  </header>
 );
 
 export default Navbar;
