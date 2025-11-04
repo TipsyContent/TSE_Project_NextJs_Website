@@ -30,16 +30,15 @@ const Navbar = () => (
         <NavigationMenuList className="flex-wrap gap-3">
           {NAV_ITEMS.map((item) => (
             <NavigationMenuItem key={item.href}>
-              <Link href={item.href} legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent px-3 font-semibold text-white hover:bg-transparent hover:text-tse-yellow focus:bg-transparent focus:text-tse-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tse-yellow"
-                  )}
-                >
-                  {item.label}
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "bg-transparent px-3 font-semibold text-white hover:bg-transparent hover:text-tse-yellow focus:bg-transparent focus:text-tse-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tse-yellow"
+                )}
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
