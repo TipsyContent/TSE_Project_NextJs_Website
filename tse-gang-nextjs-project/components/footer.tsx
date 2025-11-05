@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const SOCIAL_LINKS = [
-  { href: "#1", icon: "fab fa-twitter" },
+  { href: "https://x.com/TSEOfficials", icon: "fab fa-twitter" },
   { href: "#2", icon: "fab fa-instagram" },
   { href: "#3", icon: "fab fa-youtube" },
   { href: "#4", icon: "fab fa-discord" },
