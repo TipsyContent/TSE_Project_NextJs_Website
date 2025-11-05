@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { QuestionAnswer } from "@/components/faq";
+import { QuestionAnswer, category } from "@/components/faq";
 import { Accordion } from "@/components/ui/accordion";
 
 // same slug trick as the component so IDs stay predictable
@@ -18,8 +18,8 @@ export default function Faq() {
   // map the raw QA data into accordion-ready objects that already know their id
   const items = useMemo(
     () => [
-      { question: "me?", answer: "yes, you" },
-      { question: "you?", answer: "yes, me" },
+      { question: "me?", answer: "yes, you", category: category.Category1 },
+      { question: "you?", answer: "yes, me", category: category.Category2 },
     ].map((q) => ({ ...q, id: slugify(q.question) })),
     []
   );
@@ -85,6 +85,7 @@ export default function Faq() {
               id={item.id}
               question={item.question}
               answer={item.answer}
+              category={item.category} 
             />)
           )}
         </Accordion>

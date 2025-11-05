@@ -14,6 +14,12 @@ function slugify(input: string) {
     .replace(/-+/g, "-");
 }
 
+export enum category {
+  Category1 = "YES",
+  Category2 = "NO",
+  Category3 = "MAYBE"
+}
+
 export function QuestionAnswer({
   question,
   answer,
@@ -21,6 +27,7 @@ export function QuestionAnswer({
 }: {
   question: string;
   answer: string;
+  category: category;
   id?: string;
 }) {
   // lock in a stable id so the accordion + hash links agree about which item is open
