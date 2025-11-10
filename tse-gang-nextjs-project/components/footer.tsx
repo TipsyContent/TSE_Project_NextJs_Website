@@ -17,6 +17,7 @@ const SOCIAL_LINKS = [
 const FOOTER_LINKS = [
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 const Footer: React.FC = () => {
