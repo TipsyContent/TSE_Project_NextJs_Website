@@ -17,10 +17,11 @@ function slugify(input: string) {
 export default function Faq() {
   // map the raw QA data into accordion-ready objects that already know their id
   const items = useMemo(
-    () => [
-      { question: "me?", answer: "yes, you", category: category.Category1 },
-      { question: "you?", answer: "yes, me", category: category.Category2 },
-    ].map((q) => ({ ...q, id: slugify(q.question) })),
+    () =>
+      [
+        { question: "me?", answer: "yes, you", category: category.Category1 },
+        { question: "you?", answer: "yes, me", category: category.Category2 },
+      ].map((q) => ({ ...q, id: slugify(q.question) })),
     []
   );
 
@@ -75,20 +76,22 @@ export default function Faq() {
   }, [items]);
 
   return (
-    <div>
-      <h1>Frequently asked questions</h1>
-      <div className="w-50">
-        <Accordion type="multiple" value={open} onValueChange={setOpen}>
-          {items.map((item) => (
-            <QuestionAnswer
-              key={item.id}
-              id={item.id}
-              question={item.question}
-              answer={item.answer}
-              category={item.category} 
-            />)
-          )}
-        </Accordion>
+    <div className="flex items-center justify-center p-10">
+      <div className="flex flex-col items-center text-center">
+        <h1 className="text-2xl font-bold">Frequently asked questions</h1>
+        <div className="w-50">
+          <Accordion type="multiple" value={open} onValueChange={setOpen}>
+            {items.map((item) => (
+              <QuestionAnswer
+                key={item.id}
+                id={item.id}
+                question={item.question}
+                answer={item.answer}
+                category={item.category}
+              />
+            ))}
+          </Accordion>
+        </div>
       </div>
     </div>
   );
