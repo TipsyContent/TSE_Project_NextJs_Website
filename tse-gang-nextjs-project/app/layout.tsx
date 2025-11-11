@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
+import CookieBanner from "@/components/cookie-banner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,10 +36,10 @@ export default function RootLayout({
           <main className="grid justify-center w-[1200px]">{children}</main>
         </div>
 
-        
         <footer>
-      <Footer />
-      </footer>
+          <Footer />
+        </footer>
+        <CookieBanner />
       </body>
     
     </html>
