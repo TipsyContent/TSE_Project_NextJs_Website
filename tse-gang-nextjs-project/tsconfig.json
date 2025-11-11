@@ -22,7 +22,9 @@
       "@/*": ["./*"],
       "@/lib":["./lib"],
       "@/components":["./components"],
-      "@/app":["./app"]
+      "@/app":["./app"],
+      "@/components/ui":["./components/ui"],
+      "@/public":["./public"]
     }
   },
   "include": [
