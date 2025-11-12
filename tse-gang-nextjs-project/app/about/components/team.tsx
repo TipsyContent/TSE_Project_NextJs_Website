@@ -10,24 +10,34 @@ export function Team({
 }: {
   teamName: string;
   teamImgSrc: StaticImageData;
-  members: string[];
+  members: { name: string; link: string }[];
   isLarge?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 p-4 border-b border-gray-200">
+    <div className="flex flex-col items-center gap-2 p-4 border-b border-gray-200 text-center">
       <Image
         src={teamImgSrc}
         alt={teamName}
-        className={cn("w-16 h-16 rounded-full object-cover", {
-          "w-24 h-24": isLarge,
+        className={cn("w-23 h-23 rounded-full object-cover", {
+          "w-34 h-34": isLarge,
         })}
       />
       <h3 className="text-xl font-semibold">{teamName}</h3>
-      <ul className="ml-4 list-disc list-inside">
-        {members.map((member) => (
-          <li key={member}>{member}</li>
-        ))}
-      </ul>
+      <div className="flex flex-col items-center">
+        <ul className="list-disc list-inside">
+          {members.map((member) => (
+            <li className="list-none" key={member.name}>
+              <a
+                href={member.link}
+                className="text-gray-900 hover:text-red-600 transition-colors"
+              >
+                {member.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="my-2"></div>
     </div>
   );
 }
