@@ -122,3 +122,109 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Contact Form Styles */
+.contact-container {
+  margin: 40px 0;
+  max-width: 500px; /* Øget fra 500px til 900px */
+}
+
+.contact-container h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; /* Justeret ratio */
+  gap: 40px; /* Øget gap */
+}
+
+.form-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px; /* Øget padding */
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: white;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.message-group-full textarea {
+  flex: 1;
+  height: 100%;
+  min-height: 250px; /* Øget højde */
+}
+
+.input-error {
+  border-color: red !important;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.send-btn {
+  padding: 12px 50px; /* Større knap */
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  align-self: flex-end;
+  transition: background-color 0.2s;
+}
+
+.send-btn:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-container {
+    max-width: 100%;
+  }
+}
