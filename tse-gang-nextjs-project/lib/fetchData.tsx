@@ -14,11 +14,13 @@ export async function fetchData (forceRefresh = false) {
             return cachedData;
         }
 
+       
         const response = await fetch(BASE_URL + TEAM_ID)
         if (!response.ok) {
             throw new Error(response.statusText);
         }
         const data = await response.json();
+        
         cachedData = data;
         lastFetched = Date.now();
         if (refreshTimer) { // clear scheduled refresh to avoid overlapping timers
@@ -32,4 +34,6 @@ export async function fetchData (forceRefresh = false) {
     } catch (e) {
         console.log("You goffed up");
     }   
+
+
 }
