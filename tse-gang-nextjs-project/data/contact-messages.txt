@@ -1,0 +1,18 @@
+
+Besked format:
+Dato: Wed Nov 12 2025 07:35:31 GMT+0100 (Centraleuropæisk normaltid)
+Navn: gggg
+Email: josephinegormsen@hotmail.com
+Emne: tttt
+Besked: ggggg
+
+
+
+Besked format:
+Dato: Wed Nov 12 2025 07:35:50 GMT+0100 (Centraleuropæisk normaltid)
+Navn: ffff
+Email: josephinegormsen@hotmail.com
+Emne: tttt
+Besked: fggfgfgfg
+
+

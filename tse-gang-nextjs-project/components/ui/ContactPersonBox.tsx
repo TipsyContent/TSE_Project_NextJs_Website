@@ -5,7 +5,7 @@ interface ContactPersonBoxProps {
   role: string;
   image?: string;
   email?: string;
-  phone?: String;
+  phone?: string;
 }
 
 const defaultImage = "/TSE_PLACEHOLDER.png"
