@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { name, email, subject, message } = body;
 
     // Opret data mappe hvis den ikke eksisterer
-    const dataDir = path.join(process.cwd(), 'data');
+    const dataDir = path.join(process.cwd(), 'data', 'contact-messages');
     if (!existsSync(dataDir)) {
       await mkdir(dataDir, { recursive: true });
     }

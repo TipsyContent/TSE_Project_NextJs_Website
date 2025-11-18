@@ -1,9 +1,12 @@
-import Image from "next/image";
+import CreateBlogMDFiles from "@/components/blog/CreateBlogMDFiles";
+import ViewBlogMDFiles from "@/components/blog/ViewBlogMDFiles";
+
 //test
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-    
+    <div className="flex items-center justify-center">
+      <CreateBlogMDFiles />
+      <ViewBlogMDFiles />
     </div>
   );
 }

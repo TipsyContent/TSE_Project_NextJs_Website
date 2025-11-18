@@ -33,7 +33,7 @@ export default function RootLayout({
         <Navbar />
       
         <div className="grow grid justify-center w-full">
-          <main className="grid justify-center w-[1200px]">{children}</main>
+          <main className="grid justify-center w-auto">{children}</main>
         </div>
 
         <footer>
