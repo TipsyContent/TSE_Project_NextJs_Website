@@ -15,10 +15,22 @@ export function formatTournamentTime(dateString: string): string {
 }
 
 // Hjælpe-funktion til at få både dato og tid
-export function formatTournamentDateTime(dateString: string) {
+// lib/utils/dateAndTimeFormatter.ts
+
+export function formatTournamentDateTime(dateString: string, locale?: string) {
+  const date = new Date(dateString);
+
+  const resolvedLocale =
+    locale ??
+    (typeof navigator !== "undefined" ? navigator.language : "en-US");
+
+  const formatter = new Intl.DateTimeFormat(resolvedLocale, {
+    dateStyle: "long",
+    timeStyle: "short",
+  });
+
   return {
-    date: formatTournamentDate(dateString),
-    time: formatTournamentTime(dateString),
-    fullDateTime: new Date(dateString) // til sortering
+    formatted: formatter.format(date),
+    fullDateTime: date,
   };
 }
