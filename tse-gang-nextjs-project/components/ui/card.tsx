@@ -27,11 +27,18 @@ export function TournamentCard() {
       try {
         setLoading(true);
         const api = await fetchData();
-        const list: Item[] = (api.data.upcoming as Item[])?.length
-          ? api.data.upcoming
-          : (api.data.results as Item[]) ?? [];
+        const now = new Date();
+
+        const allUpcoming = (api.data.upcoming as Item[]) ?? []
+
+        const upcoming = allUpcoming
+        .slice()
+        .sort((a, b) => new Date(a.utc).getTime() - new Date(b.utc).getTime())
+        .filter((m) => new Date(m.utc) > now)
+        .slice(0, 3);
+
         if (!mounted) return;
-        setItems(list);
+        setItems(upcoming);
       } catch (e) {
         console.error(e);
         if (mounted) setError("Could not load tournaments.");
@@ -44,8 +51,6 @@ export function TournamentCard() {
       mounted = false;
     };
   }, []);
-
-  const topThree = items.slice(0, 3);
 
   return (
     <Card className="w-full max-w-md">
@@ -66,13 +71,13 @@ export function TournamentCard() {
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : error ? (
           <p className="text-sm text-red-600">{error}</p>
-        ) : topThree.length === 0 ? (
+        ) : items.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             No upcoming tournaments
           </p>
         ) : (
           <ul className="space-y-2">
-            {topThree.map((t) => {
+            {items.map((t) => {
               const a = t.teams?.[0];
               const b = t.teams?.[1];
               const when = formatTournamentDateTime(t.utc) ?? null;
