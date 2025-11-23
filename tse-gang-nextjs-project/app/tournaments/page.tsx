@@ -81,7 +81,7 @@ export default function TournamentsPage() {
         <h1 className="text-2xl mb-4 text-center">Upcoming matches</h1>
 
         {upcoming.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No upcoming matches</p>
+          <p className="text-sm text-muted-foreground text-center">No upcoming matches</p>
         ) : (
           <ul className="space-y-2">
             {upcoming.map((t) => {
